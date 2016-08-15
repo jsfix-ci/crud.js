@@ -26,18 +26,18 @@ npm install crud.js
     app.use(bodyParser.urlencoded({limit: '1mb', extended: false}));
     
     MongoClient.connect(url, function(err, client) {
-    	if (err) {
-    		console.log(err);
-    	} else {
-    		console.log('successful connection on mongoDB ', url);
-    		crud.init(client); // initialize the database on crud Object
-    	}
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('successful connection on mongoDB ', url);
+            crud.init(client); // initialize the database on crud Object
+        }
     });
     
     app.all('/crud/:collection?', crud.crud);
     
     app.listen(port, function() {
-    	console.log('Server on http://localhost:' + port);
+        console.log('Server on http://localhost:' + port);
     });
       
 
